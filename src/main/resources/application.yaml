@@ -1,0 +1,22 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: notificationservice
+  docker:
+    compose:
+      enabled: false
+      skip:
+        in-tests: true
+  redis:
+    host: localhost
+    port: 6379
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    topic:
+      inventory-check: inventory.check.result.event
