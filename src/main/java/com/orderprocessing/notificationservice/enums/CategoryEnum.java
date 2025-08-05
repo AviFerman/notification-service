@@ -1,4 +1,4 @@
-package com.orderprocessing.orderservice.enums;
+package com.orderprocessing.notificationservice.enums;
 
 public enum CategoryEnum {
     STANDARD,
