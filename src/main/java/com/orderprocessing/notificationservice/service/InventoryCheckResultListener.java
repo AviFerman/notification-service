@@ -30,20 +30,20 @@ public class InventoryCheckResultListener {
             Optional<OrderData> orderDataOptional = Optional.ofNullable(redisService.readJson("order:" + orderEvent.getOrderId(), OrderData.class));
             OrderData orderData = orderDataOptional.get();
             log.info("listenToMessage:: Received OrdedData: {}", orderData);
-            log.info("---------------------- N O TI VI C A T I O N ----------------------");
+            log.info("---------------------- N O T I F I C A T I O N ----------------------");
             if (orderData.getOrderStatus().equals(OrderStatusEnum.CANCELLED)) {
-                log.info("-- ORDER HAS BEEN CANCELLED --");
+                log.info("ORDER HAS BEEN CANCELLED");
             }
 
             if (orderData.getOrderStatus().equals(OrderStatusEnum.GOOD_TO_GO)) {
-                log.info("-- ORDER IS GOOD TO GO  --");
+                log.info("ORDER IS GOOD TO GO");
             }
 
             if (orderData.getOrderStatus().equals(OrderStatusEnum.PENDING)) {
-                log.info("-- ORDER IS PENDING --");
+                log.info("ORDER IS PENDING");
             }
 
-            log.info("-- ORDDER DATA --");
+            log.info("ORDDER DATA:");
             log.info(orderData.toString());
             log.info("---------------------- N O TI VI C A T I O N ----------------------");
         } catch (Exception e) {
